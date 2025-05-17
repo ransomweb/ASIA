@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall of Lockers | Asia's Top 5 DaHood Lockers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7b2cbf;
+            --primary-dark: #5a189a;
+            --primary-light: #9d4edd;
+            --secondary: #ff9e00;
+            --text: #f8f9fa;
+            --text-secondary: #adb5bd;
+            --bg: #0f0f13;
+            --bg-secondary: #1a1a23;
+            --accent: #00e5ff;
+            --success: #38b000;
+            --glass: rgba(30, 30, 46, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300 900;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2) format('woff2');
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(123, 44, 191, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(123, 44, 191, 0.6); }
+            100% { box-shadow: 0 0 10px rgba(123, 44, 191, 0.3); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            background: var(--glass);
+            padding: 1.2rem 2.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(123, 44, 191, 0.2);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        nav ul li a i {
+            font-size: 1rem;
+        }
+
+        .nav-btn {
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            padding: 0.6rem 1.8rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(123, 44, 191, 0.1) 0%, transparent 70%);
+            animation: pulse 8s infinite alternate;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--text), var(--text-secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            color: var(--text);
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(123, 44, 191, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .feature {
+            background: var(--glass);
+            padding: 1.8rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(123, 44, 191, 0.1);
+        }
+
+        .feature:hover {
+            transform: translateY(-8px);
+            background: rgba(123, 44, 191, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .feature p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--primary), transparent);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Leaderboard Section */
+        .leaderboard {
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leaderboard::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(123, 44, 191, 0.03)" d="M0,0 L100,0 L100,100 Q50,80 0,100 Z"></path></svg>') no-repeat;
+            background-size: cover;
+            pointer-events: none;
+        }
+
+        .leaderboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+            margin-top: 2rem;
+        }
+
+        .leaderboard-table thead th {
+            background: var(--glass);
+            color: var(--text);
+            padding: 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(123, 44, 191, 0.2);
+        }
+
+        .leaderboard-table thead th:first-child {
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+        }
+
+        .leaderboard-table thead th:last-child {
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .leaderboard-table tbody tr {
+            background: var(--glass);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(123, 44, 191, 0.1);
+        }
+
+        .leaderboard-table tbody tr:hover {
+            transform: translateY(-5px);
+            background: rgba(123, 44, 191, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .leaderboard-table td {
+            padding: 1.2rem;
+            color: var(--text);
+        }
+
+        .leaderboard-table td:first-child {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .leaderboard-table td:last-child {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .leaderboard-rank {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1.1rem;
+            text-align: center;
+            width: 60px;
+        }
+
+        .leaderboard-user {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            margin-right: 15px;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .user-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .leaderboard-score {
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: right;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            border: 1px solid rgba(123, 44, 191, 0.2);
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-title i {
+            color: var(--primary);
+        }
+
+        .close-profile {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-profile:hover {
+            color: var(--secondary);
+            transform: rotate(90deg);
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-avatar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .profile-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: var(--bg);
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.2);
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            grid-column: span 2;
+        }
+
+        .save-btn:hover {
+            background: linear-gradient(45deg, var(--primary-light), var(--primary));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+        }
+
+        /* Profile Lookup */
+        .lookup-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .lookup-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            border: 1px solid rgba(123, 44, 191, 0.2);
+        }
+
+        .lookup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .lookup-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lookup-title i {
+            color: var(--primary);
+        }
+
+        .close-lookup {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-lookup:hover {
+            color: var(--secondary);
+            transform: rotate(90deg);
+        }
+
+        .lookup-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .lookup-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .lookup-input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            background: var(--bg);
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .lookup-btn {
+            padding: 0 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lookup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+        }
+
+        .profile-display {
+            background: var(--glass);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(123, 44, 191, 0.1);
+            display: none;
+        }
+
+        .profile-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .profile-header-display {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-avatar-display {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .profile-info-display h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .profile-info-display p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .profile-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-item h4 {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item p {
+            font-size: 1rem;
+            color: var(--text);
+            background: var(--bg);
+            padding: 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(123, 44, 191, 0.1);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(123, 44, 191, 0.3);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(123, 44, 191, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--bg-secondary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                z-index: 999;
+                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3);
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 4rem 1rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .profile-form {
+                grid-template-columns: 1fr;
+            }
+
+            .save-btn {
+                grid-column: span 1;
+            }
+
+            .leaderboard-table thead {
+                display: none;
+            }
+            
+            .leaderboard-table tbody tr {
+                display: block;
+                margin-bottom: 1.5rem;
+                border-radius: 12px;
+            }
+            
+            .leaderboard-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 1rem;
+                border-bottom: none;
+            }
+            
+            .leaderboard-table td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-secondary);
+                margin-right: 1rem;
+            }
+            
+            .leaderboard-table td:first-child {
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+                background: rgba(123, 44, 191, 0.1);
+            }
+            
+            .leaderboard-table td:last-child {
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .profile-container, .lookup-container {
+                padding: 1.5rem;
+            }
+
+            .profile-header-display {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .profile-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <span class="logo-text">Hall of Lockers</span>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#leaderboard"><i class="fas fa-trophy"></i> Leaderboard</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Hall of Lockers <span>ASIA</span></h1>
+            <p>Since 2024, we've dominated DaHood with unmatched locking techniques. Founded by Rex, Yufi, Blackout, Moon, and Draco - the legends who started it all.</p>
+            <div class="hero-btns">
+                <a href="#leaderboard" class="btn btn-primary"><i class="fas fa-trophy"></i> View Leaderboard</a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="section-title">
+            <h2>About The Community</h2>
+            <p>We are the elite. The untouchables. The Hall of Lockers.</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Where Asian Legends Are Forged</h3>
+                <p>Founded in 2024 by the most skilled exploiters in Asia's DaHood scene, Hall of Lockers represents the pinnacle of locking mastery. Our founders - Rex, Yufi, Blackout, Moon, and Draco - set the standard that all others follow.</p>
+                <p>What started as a small group of elite players has grown into Asia's most respected locking community, known for developing techniques that others try (and fail) to replicate.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Asian Dominance</h4>
+                        <p>Our techniques were perfected in Asia's competitive DaHood scene.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h4>Elite Community</h4>
+                        <p>Only the top 0.1% of Asian lockers earn a spot in our ranks.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Next-Level Tech</h4>
+                        <p>Our methods evolve daily to stay ahead of the competition.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-crown"></i>
+                        <h4>Prestige & Fame</h4>
+                        <p>Being in the Top 5 means respect across all Asian servers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gaming Community">
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section class="section leaderboard" id="leaderboard">
+        <div class="section-title">
+            <h2>Top 5 Lockers in Asia</h2>
+            <p>The undisputed top 5 lockers in Asia since 2025</p>
+        </div>
+        <div class="leaderboard-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Lock Score</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="leaderboard-rank">1</td>
+                        <td>
+                            <div class="leaderboard-user">
+                                <div class="user-avatar">?</div>
+                                <div class="user-info">
+                                    <div class="user-name">Vacant</div>
+                                    <div class="user-title">Unclaimed</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="leaderboard-score"></td>
+<td><span style="color: #ff9e00;"><i class="fas fa-pause"></i> Unclaimed</span></td>
+                    </tr>
+                    <tr>
+                        <td class="leaderboard-rank">2</td>
+                        <td>
+                            <div class="leaderboard-user">
+                                <div class="user-avatar">X</div>
+                                <div class="user-info">
+                                    <div class="user-name">Xua</div>
+                                    <div class="user-title"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="leaderboard-score"></td>
+                        <td><span style="color: var(--success);"><i class="fas fa-arrow-up"></i> Active</span></td>
+                    </tr>
+                    <tr>
+                        <td class="leaderboard-rank">3</td>
+                        <td>
+                            <div class="leaderboard-user">
+                                <div class="user-avatar">D</div>
+                                <div class="user-info">
+                                    <div class="user-name">Denbladi</div>
+                                    <div class="user-title"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="leaderboard-score"></td>
+                        <td><span style="color: var(--success);"><i class="fas fa-arrow-up"></i> Active</span></td>
+                    </tr>
+                    <tr>
+                        <td class="leaderboard-rank">4</td>
+                        <td>
+                            <div class="leaderboard-user">
+                                <div class="user-avatar">DM</div>
+                                <div class="user-info">
+                                    <div class="user-name">Drose, Muckshot</div>
+                                    <div class="user-title"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="leaderboard-score"></td>
+                        <td><span style="color: var(--success);"><i class="fas fa-arrow-up"></i> Active</span></td>
+                    </tr>
+                    <tr>
+                        <td class="leaderboard-rank">5</td>
+                        <td>
+                            <div class="leaderboard-user">
+                                <div class="user-avatar">S</div>
+                                <div class="user-info">
+                                    <div class="user-name">Skibidibladi</div>
+                                    <div class="user-title"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="leaderboard-score"></td>
+                        <td><span style="color: #ff4757;"><i class="fas fa-arrow-down"></i> Inactive</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Profile Creation Section -->
+    <section class="profile-section" id="profile-section">
+        <div class="profile-container">
+            <div class="profile-header">
+
+                <span class="close-profile">&times;</span>
+            </div>
+            <div class="profile-content">
+                <div class="profile-avatar">
+                    <div class="avatar-preview" id="avatar-preview">?</div>
+                </div>
+                <form id="profile-form">
+                    <div class="profile-form">
+                        <div class="form-group">
+                            <label for="profile-name">Display Name</label>
+                            <input type="text" id="profile-name" class="form-control" placeholder="Enter your display name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-title">Title</label>
+                            <input type="text" id="profile-title" class="form-control" placeholder="e.g. The Lock Master">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-discord">Discord</label>
+                            <input type="text" id="profile-discord" class="form-control" placeholder="Your Discord username">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-style">Locking Style</label>
+                            <input type="text" id="profile-style" class="form-control" placeholder="e.g. Aggressive, Defensive">
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-bio">About Me</label>
+                            <textarea id="profile-bio" class="form-control" rows="3" placeholder="Tell us about your locking journey"></textarea>
+                        </div>
+                        <button type="submit" class="save-btn"><i class="fas fa-save"></i> Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Lookup Section -->
+    <section class="lookup-section" id="lookup-section">
+        <div class="lookup-container">
+            <div class="lookup-header">
+                <h2 class="lookup-title"><i class="fas fa-search"></i> Profile Lookup</h2>
+                <span class="close-lookup">&times;</span>
+            </div>
+            <div class="lookup-content">
+                <div class="lookup-form">
+                    <input type="text" class="lookup-input" id="lookup-input" placeholder="Enter player name">
+                    <button class="lookup-btn" id="lookup-search-btn">Search</button>
+                </div>
+                <div class="profile-display" id="profile-display">
+                    <div class="profile-header-display">
+                        <div class="profile-avatar-display" id="display-avatar">?</div>
+                        <div class="profile-info-display">
+                            <h3 id="display-name">Player Name</h3>
+                            <p id="display-title">The Locking Legend</p>
+                        </div>
+                    </div>
+                    <div class="profile-details">
+                        <div class="detail-item">
+                            <h4>Discord</h4>
+                            <p id="display-discord">Not provided</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Locking Style</h4>
+                            <p id="display-style">Unknown</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>About</h4>
+                            <p id="display-bio">No information available</p>
+                        </div>
+                        <div class="detail-item">
+                            <h4>Member Since</h4>
+                            <p id="display-date">2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Hall of Lockers</div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#leaderboard">Leaderboard</a>
+                <a href="#" id="footer-profile-btn">My Profile</a>
+                <a href="#" id="footer-lookup-btn">Lookup</a>
+                <a href="#">Terms</a>
+                <a href="#">Privacy</a>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 Hall of Lockers Asia. All rights reserved. | Founded by Rex, Yufi, Blackout, Moon, and Draco
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Profile section toggle
+        const profileBtn = document.getElementById('profile-btn');
+        const createProfileBtn = document.getElementById('create-profile-btn');
+        const footerProfileBtn = document.getElementById('footer-profile-btn');
+        const profileSection = document.getElementById('profile-section');
+        const closeProfile = document.querySelector('.close-profile');
+
+        const lookupBtn = document.getElementById('lookup-btn');
+        const footerLookupBtn = document.getElementById('footer-lookup-btn');
+        const lookupSection = document.getElementById('lookup-section');
+        const closeLookup = document.querySelector('.close-lookup');
+
+        const toggleProfile = () => {
+            profileSection.style.display = profileSection.style.display === 'block' ? 'none' : 'block';
+            document.body.style.overflow = profileSection.style.display === 'block' ? 'hidden' : 'auto';
+            lookupSection.style.display = 'none';
+        };
+
+        const toggleLookup = () => {
+            lookupSection.style.display = lookupSection.style.display === 'block' ? 'none' : 'block';
+            document.body.style.overflow = lookupSection.style.display === 'block' ? 'hidden' : 'auto';
+            profileSection.style.display = 'none';
+        };
+
+        profileBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleProfile();
+        });
+
+        createProfileBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleProfile();
+        });
+
+        footerProfileBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleProfile();
+        });
+
+        lookupBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleLookup();
+        });
+
+        footerLookupBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleLookup();
+        });
+
+        closeProfile.addEventListener('click', toggleProfile);
+        closeLookup.addEventListener('click', toggleLookup);
+
+        // Profile form handling
+        const profileForm = document.getElementById('profile-form');
+        const avatarPreview = document.getElementById('avatar-preview');
+        const profileNameInput = document.getElementById('profile-name');
+
+        profileNameInput.addEventListener('input', () => {
+            if (profileNameInput.value.length > 0) {
+                avatarPreview.textContent = profileNameInput.value.charAt(0).toUpperCase();
+            } else {
+                avatarPreview.textContent = '?';
+            }
+        });
+
+        // Store profiles in localStorage
+        const saveProfile = (profileData) => {
+            localStorage.setItem('hallOfLockersProfile', JSON.stringify(profileData));
+            alert('Profile saved successfully!');
+            toggleProfile();
+        };
+
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const profileData = {
+                name: document.getElementById('profile-name').value,
+                title: document.getElementById('profile-title').value,
+                discord: document.getElementById('profile-discord').value,
+                style: document.getElementById('profile-style').value,
+                bio: document.getElementById('profile-bio').value,
+                joinDate: new Date().toLocaleDateString(),
+                avatar: document.getElementById('profile-name').value.charAt(0).toUpperCase()
+            };
+            
+            saveProfile(profileData);
+        });
+
+        // Load profile if exists
+        const loadProfile = () => {
+            const savedProfile = localStorage.getItem('hallOfLockersProfile');
+            if (savedProfile) {
+                return JSON.parse(savedProfile);
+            }
+            return null;
+        };
+
+        // Populate form if profile exists
+        const populateProfileForm = () => {
+            const profile = loadProfile();
+            if (profile) {
+                document.getElementById('profile-name').value = profile.name;
+                document.getElementById('profile-title').value = profile.title;
+                document.getElementById('profile-discord').value = profile.discord;
+                document.getElementById('profile-style').value = profile.style;
+                document.getElementById('profile-bio').value = profile.bio;
+                avatarPreview.textContent = profile.avatar;
+            }
+        };
+
+        // Initialize form
+        populateProfileForm();
+
+        // Profile lookup functionality
+        const lookupSearchBtn = document.getElementById('lookup-search-btn');
+        const lookupInput = document.getElementById('lookup-input');
+        const profileDisplay = document.getElementById('profile-display');
+        const displayName = document.getElementById('display-name');
+        const displayTitle = document.getElementById('display-title');
+        const displayAvatar = document.getElementById('display-avatar');
+        const displayDiscord = document.getElementById('display-discord');
+        const displayStyle = document.getElementById('display-style');
+        const displayBio = document.getElementById('display-bio');
+        const displayDate = document.getElementById('display-date');
+
+        // Sample profiles database (in a real app, this would be server-side)
+        const sampleProfiles = {
+            'rex': {
+                name: 'Rex',
+                title: 'The Unbreakable | Founder',
+                discord: 'rex#0001',
+                style: 'Aggressive Dominance',
+                bio: 'Founding member of Hall of Lockers. Undefeated in 1v1 locking battles across Asia.',
+                joinDate: 'Jan 2024',
+                avatar: 'R'
+            },
+            'yufi': {
+                name: 'Yufi',
+                title: 'The Phantom | Founder',
+                discord: 'yufi#0002',
+                style: 'Precision Strikes',
+                bio: 'Master of stealth locking techniques. If you see Yufi coming, it\'s already too late.',
+                joinDate: 'Jan 2024',
+                avatar: 'Y'
+            },
+            'draco': {
+                name: 'Draco',
+                title: 'The Shapeshifter | Founder',
+                discord: 'draco#0003',
+                style: 'Adaptive Tactics',
+                bio: 'Changes locking styles mid-battle to keep opponents guessing. No two locks are the same.',
+                joinDate: 'Jan 2024',
+                avatar: 'D'
+            },
+            'moon': {
+                name: 'Moon',
+                title: 'The Silent | Founder',
+                discord: 'moon#0004',
+                style: 'Calculated Defense',
+                bio: 'Speaks through locks. The most feared defensive locker in Asia.',
+                joinDate: 'Jan 2024',
+                avatar: 'M'
+            },
+            'blackout': {
+                name: 'Blackout',
+                title: 'The Shadow | Founder',
+                discord: 'blackout#0005',
+                style: 'Psychological Warfare',
+                bio: 'Specializes in mind games and unpredictable patterns. You\'ll never see the lock coming.',
+                joinDate: 'Jan 2024',
+                avatar: 'B'
+            }
+        };
+
+        lookupSearchBtn.addEventListener('click', () => {
+            const searchTerm = lookupInput.value.trim().toLowerCase();
+            
+            // Check if searching for current user's profile
+            const currentProfile = loadProfile();
+            if (currentProfile && searchTerm === currentProfile.name.toLowerCase()) {
+                displayProfile(currentProfile);
+                return;
+            }
+            
+            // Check sample profiles
+            if (sampleProfiles[searchTerm]) {
+                displayProfile(sampleProfiles[searchTerm]);
+                return;
+            }
+            
+            // Check if the searched profile exists in localStorage (for demo purposes)
+            if (searchTerm === 'demo') {
+                displayProfile({
+                    name: 'Demo Player',
+                    title: 'Rising Star',
+                    discord: 'demo#1234',
+                    style: 'Mixed Style',
+                    bio: 'Upcoming locker looking to make a name in the Asian scene.',
+                    joinDate: 'Jun 2024',
+                    avatar: 'D'
+                });
+                return;
+            }
+            
+            alert('Profile not found. Try searching for one of the founders: Rex, Yufi, Draco, Moon, or Blackout');
+        });
+
+        function displayProfile(profile) {
+            displayName.textContent = profile.name;
+            displayTitle.textContent = profile.title;
+            displayAvatar.textContent = profile.avatar;
+            displayDiscord.textContent = profile.discord || 'Not provided';
+            displayStyle.textContent = profile.style || 'Unknown';
+            displayBio.textContent = profile.bio || 'No information available';
+            displayDate.textContent = profile.joinDate || '2024';
+            profileDisplay.classList.add('active');
+        }
+
+        // Add floating particles to hero section
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 20;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 2px and 6px
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random animation duration and delay
+            const duration = Math.random() * 10 + 10;
+            const delay = Math.random() * 5;
+            particle.style.animation = `float ${duration}s infinite ${delay}s`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.4 + 0.1;
+            
+            // Random color variation
+            const hue = 270 + Math.random() * 30 - 15; // Purple hue range
+            particle.style.background = `hsl(${hue}, 80%, 70%)`;
+            
+            particlesContainer.appendChild(particle);
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
